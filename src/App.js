@@ -1,7 +1,7 @@
 import "./App.css";
-import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useEffect, useState } from "react";
+import CDropdown from "./components/dropdown";
 
 const defaultOptions = [
   { value: "apple", label: "Apple" },
@@ -34,36 +34,30 @@ function App() {
 
   return (
     <div className="MainContainer">
-      <div className="DropdownDiv">
-        <label className="DropdownTitle">Monday</label>
-        <Dropdown
-          className="DropdownStyle"
-          options={options}
-          value={mondayValue}
-          placeholder="Select an option"
-          onChange={(e) => setMondayValue(e.label)}
-        />
-      </div>
-      <div className="DropdownDiv">
-        <label className="DropdownTitle">Tuesday</label>
-        <Dropdown
-          className="DropdownStyle"
-          options={options}
-          value={tuesdayValue}
-          onChange={(e) => setTuesdayValue(e.label)}
-          placeholder="Select an option"
-        />
-      </div>
-      <div className="DropdownDiv">
-        <label className="DropdownTitle">Wednesday</label>
-        <Dropdown
-          className="DropdownStyle"
-          options={options}
-          value={wednesdayValue}
-          onChange={(e) => setWednesdayValue(e.label)}
-          placeholder="Select an option"
-        />
-      </div>
+      <CDropdown
+        label="Monday"
+        className="DropdownStyle"
+        options={options}
+        value={mondayValue}
+        placeholder="Select an option"
+        onChange={(e) => setMondayValue(e.label)}
+      />
+      <CDropdown
+        label="Tuesday"
+        className="DropdownStyle"
+        options={options}
+        value={tuesdayValue}
+        onChange={(e) => setTuesdayValue(e.label)}
+        placeholder="Select an option"
+      />
+      <CDropdown
+        label="Wednesday"
+        className="DropdownStyle"
+        options={options}
+        value={wednesdayValue}
+        onChange={(e) => setWednesdayValue(e.label)}
+        placeholder="Select an option"
+      />
     </div>
   );
 }
