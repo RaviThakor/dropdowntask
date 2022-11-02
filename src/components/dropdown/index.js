@@ -4,8 +4,10 @@ import "./styles.css";
 
 const CDropdown = ({ label, ...props }) => {
   return (
-    <div data-testid="dropdown" className="DropdownDiv">
-      <label className="DropdownTitle">{label}</label>
+    <div data-testid="dropdown-parent" className="DropdownDiv">
+      <label data-testid="dropdown-label" className="DropdownTitle">
+        {label}
+      </label>
       <Dropdown {...props} />
     </div>
   );
