@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import BarChart from "../index";
+import { barChartData } from "../../../utils/staticData";
 
-test("should contain one child", () => {
-  render(<BarChart />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("Bar chart should be rendered", () => {
+  render(<BarChart data={barChartData} />);
+  const barChart = screen.getByTestId(/barChart/i);
+  expect(barChart).toBeInTheDocument();
 });

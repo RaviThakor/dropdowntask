@@ -9,8 +9,8 @@ import "./styles.css";
 
 const MapChart = ({ markers, geoUrl, style }) => {
   return (
-    <div className="mapChartContainer" style={style}>
-      <h2>Network Map</h2>
+    <div data-testid="mapChart" className="mapChartContainer" style={style}>
+      <h2 title="networkMapTitle">Network Map</h2>
       <ComposableMap
         projection="geoAzimuthalEqualArea"
         projectionConfig={{

@@ -61,7 +61,7 @@ const options = {
 
 const LineChart = ({ data, style }) => {
   return (
-    <div className="lineChartContainer" style={style}>
+    <div data-testid="lineChart" className="lineChartContainer" style={style}>
       <Line options={options} data={data} />
     </div>
   );

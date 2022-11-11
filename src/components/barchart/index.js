@@ -59,7 +59,11 @@ const options = {
 
 const BarChart = ({ data, containerStyle }) => {
   return (
-    <div className="barChartContainer" style={containerStyle}>
+    <div
+      data-testid="barChart"
+      className="barChartContainer"
+      style={containerStyle}
+    >
       <Bar options={options} data={data} />
     </div>
   );

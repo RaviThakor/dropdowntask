@@ -3,7 +3,11 @@ import "./styles.css";
 
 function SankeyChart({ data, style, chartStyle }) {
   return (
-    <div className="sankeyChartContainer" style={style}>
+    <div
+      className="sankeyChartContainer"
+      data-testid="sankeyChart"
+      style={style}
+    >
       <Sankey
         id="sankey"
         dataSource={data}
