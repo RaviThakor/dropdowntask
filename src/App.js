@@ -7,11 +7,9 @@ import {
   lineChartData,
   sankeyChartData,
   markersData,
+  linesData,
 } from "./utils/staticData";
 import "./App.css";
-
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/india/india-states.json";
 
 function App() {
   return (
@@ -20,7 +18,12 @@ function App() {
         <BarChart data={barChartData} />
         <LineChart data={lineChartData} />
         <SankeyChart style={{ marginTop: 50 }} data={sankeyChartData} />
-        <MapChart geoUrl={geoUrl} markers={markersData} />
+        <MapChart
+          title="Network Map"
+          country="Nepal"
+          // lines={linesData}
+          // markers={markersData}
+        />
       </div>
     </div>
   );

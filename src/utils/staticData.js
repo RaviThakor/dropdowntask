@@ -165,3 +165,31 @@ export const markersData = [
     coordinates: [75.8577, 22.7196],
   },
 ];
+
+export const linesData = [
+  {
+    place: "Udaipur-Mumbai",
+    from: [72.8777, 19.076],
+    to: [73.7125, 24.5854],
+  },
+  {
+    place: "Kutch-Mumbai",
+    from: [72.8777, 19.076],
+    to: [69.8597, 23.7337],
+  },
+  {
+    place: "Ooty-Mumbai",
+    from: [72.8777, 19.076],
+    to: [76.695, 11.4102],
+  },
+  {
+    place: "Dwarkadhish-Mumbai",
+    from: [72.8777, 19.076],
+    to: [68.9674, 22.2376],
+  },
+  {
+    place: "Udaipur-Indore",
+    from: [75.8577, 22.7196],
+    to: [73.7125, 24.5854],
+  },
+];

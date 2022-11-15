@@ -5,18 +5,18 @@ import {
   Marker,
   Line,
 } from "react-simple-maps";
+import { getProjectionConfigData } from "../../utils/common";
 import "./styles.css";
 
-const MapChart = ({ markers, geoUrl, style }) => {
+const MapChart = ({ markers, title, country, style, lines }) => {
+  const geoUrl = `https://raw.githubusercontent.com/techslides/D3-Maps/master/data/world/country/${country}.topo.json`;
+
   return (
     <div data-testid="mapChart" className="mapChartContainer" style={style}>
-      <h2 title="networkMapTitle">Network Map</h2>
+      <h2 title="networkMapTitle">{title}</h2>
       <ComposableMap
+        projectionConfig={getProjectionConfigData(country)}
         projection="geoAzimuthalEqualArea"
-        projectionConfig={{
-          rotate: [-80, -20, 0],
-          scale: 1000,
-        }}
       >
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
@@ -35,57 +35,33 @@ const MapChart = ({ markers, geoUrl, style }) => {
             ))
           }
         </Geographies>
-        <Line
-          from={[72.8777, 19.076]}
-          to={[73.7125, 24.5854]}
-          stroke="#FF5533"
-          strokeWidth={2}
-          strokeLinecap="round"
-        />
-        <Line
-          from={[72.8777, 19.076]}
-          to={[69.8597, 23.7337]}
-          stroke="#FF5533"
-          strokeWidth={2}
-          strokeLinecap="round"
-        />
-        <Line
-          from={[72.8777, 19.076]}
-          to={[76.695, 11.4102]}
-          stroke="#FF5533"
-          strokeWidth={2}
-          strokeLinecap="round"
-        />
-        <Line
-          from={[72.8777, 19.076]}
-          to={[68.9674, 22.2376]}
-          stroke="#FF5533"
-          strokeWidth={2}
-          strokeLinecap="round"
-        />
-        <Line
-          from={[75.8577, 22.7196]}
-          to={[73.7125, 24.5854]}
-          stroke="#FF5533"
-          strokeWidth={2}
-          strokeLinecap="round"
-        />
-        {markers.map(({ name, coordinates, markerOffset }) => (
-          <Marker key={name} coordinates={coordinates}>
-            <circle r={4} fill="#F00" stroke="#fff" strokeWidth={2} />
-            <text
-              textAnchor="middle"
-              y={markerOffset}
-              style={{
-                fontFamily: "system-ui",
-                fill: "#5D5A6D",
-                fontSize: 10,
-              }}
-            >
-              {name}
-            </text>
-          </Marker>
-        ))}
+        {lines &&
+          lines.map((item) => (
+            <Line
+              from={item.from}
+              to={item.to}
+              stroke="#FF5533"
+              strokeWidth={2}
+              strokeLinecap="round"
+            />
+          ))}
+        {markers &&
+          markers.map(({ name, coordinates, markerOffset }) => (
+            <Marker key={name} coordinates={coordinates}>
+              <circle r={4} fill="#F00" stroke="#fff" strokeWidth={2} />
+              <text
+                textAnchor="middle"
+                y={markerOffset}
+                style={{
+                  fontFamily: "system-ui",
+                  fill: "#5D5A6D",
+                  fontSize: 10,
+                }}
+              >
+                {name}
+              </text>
+            </Marker>
+          ))}
       </ComposableMap>
     </div>
   );
